@@ -1,8 +1,9 @@
-package com.crossover.dao;
+package com.crossover.trial.dao;
 
 import java.math.BigDecimal;
 
 public class Product {
+
     String code;
     String description;
     BigDecimal price;

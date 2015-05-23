@@ -1,4 +1,4 @@
-package com.crossover.dao;
+package com.crossover.trial.dao;
 
 import java.math.BigDecimal;
 

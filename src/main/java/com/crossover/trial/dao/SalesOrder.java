@@ -1,21 +1,21 @@
-package com.crossover.dao;
+package com.crossover.trial.dao;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SalesOrder {
-    String orderNumner;
+
+    String orderNumber;
     Customer customer;
     BigDecimal totalPrice;
-    List<OrderLine> orderLines = new ArrayList<>();
+    List<OrderLine> orderLines;
 
-    public String getOrderNumner() {
-        return orderNumner;
+    public String getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setOrderNumner(String orderNumner) {
-        this.orderNumner = orderNumner;
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public Customer getCustomer() {
