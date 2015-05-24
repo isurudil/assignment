@@ -3,6 +3,7 @@ package com.crossover.inventory.services.impl;
 import com.crossover.inventory.dao.Customer;
 import com.crossover.inventory.dao.EntityFactory;
 import com.crossover.inventory.services.CustomerService;
+import com.crossover.inventory.services.HibernateQueryManager;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("/customers")
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl extends HibernateQueryManager<Customer> implements CustomerService{
 
     private static Logger logger = Logger.getLogger(CustomerServiceImpl.class);
 
@@ -32,19 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = EntityFactory.createCustomer(request);
 
         executeQuery(customer);
-    }
-
-    private void executeQuery(Customer customer) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(customer);
-        try {
-            transaction.commit();
-        } catch (ConstraintViolationException e) {
-            transaction.rollback();
-            logger.error("Error occurred while adding customer ", e);
-            throw new Exception("Error occurred while adding customer");
-        }
+        logger.info("Customer is successfully added to the database");
     }
 
     @POST
