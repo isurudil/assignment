@@ -10,6 +10,16 @@ public class SalesOrder {
     BigDecimal totalPrice;
     List<OrderLine> orderLines;
 
+    public SalesOrder() {
+    }
+
+    public SalesOrder(String orderNumber, Customer customer, BigDecimal totalPrice, List<OrderLine> orderLines) {
+        this.orderNumber = orderNumber;
+        this.customer = customer;
+        this.totalPrice = totalPrice;
+        this.orderLines = orderLines;
+    }
+
     public String getOrderNumber() {
         return orderNumber;
     }

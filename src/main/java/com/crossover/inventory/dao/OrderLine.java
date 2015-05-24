@@ -9,6 +9,16 @@ public class OrderLine {
     BigDecimal unitPrice;
     BigDecimal totalPrice;
 
+    public OrderLine() {
+    }
+
+    public OrderLine(Product product, int quantity, BigDecimal unitPrice, BigDecimal totalPrice) {
+        this.product = product;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.totalPrice = totalPrice;
+    }
+
     public Product getProduct() {
         return product;
     }

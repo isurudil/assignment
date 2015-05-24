@@ -4,13 +4,14 @@ import java.math.BigDecimal;
 
 public class Customer {
 
-    String code;
-    String name;
-    String address;
-    String phoneNo1;
-    String phoneNo2;
-    BigDecimal creditLimit;
-    BigDecimal currentCredit;
+
+    private String code;
+    private String name;
+    private String address;
+    private String phoneNo1;
+    private String phoneNo2;
+    private BigDecimal creditLimit;
+    private BigDecimal currentCredit;
 
     public String getCode() {
         return code;
@@ -66,5 +67,33 @@ public class Customer {
 
     public void setCurrentCredit(BigDecimal currentCredit) {
         this.currentCredit = currentCredit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (address != null ? !address.equals(customer.address) : customer.address != null) return false;
+        if (code != null ? !code.equals(customer.code) : customer.code != null) return false;
+        if (creditLimit != null ? !creditLimit.equals(customer.creditLimit) : customer.creditLimit != null)
+            return false;
+        if (currentCredit != null ? !currentCredit.equals(customer.currentCredit) : customer.currentCredit != null)
+            return false;
+        if (phoneNo1 != null ? !phoneNo1.equals(customer.phoneNo1) : customer.phoneNo1 != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = code != null ? code.hashCode() : 0;
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (phoneNo1 != null ? phoneNo1.hashCode() : 0);
+        result = 31 * result + (creditLimit != null ? creditLimit.hashCode() : 0);
+        result = 31 * result + (currentCredit != null ? currentCredit.hashCode() : 0);
+        return result;
     }
 }

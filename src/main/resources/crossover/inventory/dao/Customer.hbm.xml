@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.crossover.inventory.dao.Customer">
+        <table name="customer" schema="" catalog="inventory"/>
+        <attributes>
+            <id name="code">
+                <column name="code"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="address">
+                <column name="address"/>
+            </basic>
+            <basic name="phoneNo1">
+                <column name="phoneNo1"/>
+            </basic>
+            <basic name="phoneNo2">
+                <column name="phoneNo2"/>
+            </basic>
+            <basic name="creditLimit">
+                <column name="creditLimit"/>
+            </basic>
+            <basic name="currentCredit">
+                <column name="currentCredit"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
