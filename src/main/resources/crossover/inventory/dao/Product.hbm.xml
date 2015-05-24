@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.crossover.inventory.dao.Product" table="PRODUCT" catalog="inventory">
+        <id name="code" type="java.lang.String">
+            <column name="code"/>
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="description"/>
+        </property>
+        <property name="price" type="java.math.BigDecimal">
+            <column name="price"/>
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.MultivaluedMap;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Map;
 
 public class EntityFactory {
@@ -26,5 +27,18 @@ public class EntityFactory {
 
         logger.debug("Customer object successfully created");
         return customer;
+    }
+
+    public static Product createProduct(MultivaluedMap<String, String> request) {
+        logger.debug("Creating product");
+
+        Product product = new Product();
+
+        product.setCode(request.getFirst(ApiKey.PRODUCT_CODE));
+        product.setDescription(request.getFirst(ApiKey.PRODUCT_DESCRIPTION));
+        product.setPrice(new BigDecimal(request.getFirst(ApiKey.PRODUCT_PRICE)));
+        product.setQuantity(Integer.parseInt(request.getFirst(ApiKey.PRODUCT_QUANTITY)));
+
+        return product;
     }
 }

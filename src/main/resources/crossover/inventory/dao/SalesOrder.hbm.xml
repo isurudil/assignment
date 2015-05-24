@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.crossover.inventory.dao.SalesOrder" table="SALES_ORDER" catalog="inventory">
+        <id name="orderNumber" type="java.lang.String">
+            <column name="orderNumber" />
+        </id>
+        <property name="totalPrice" type="java.math.BigDecimal">
+            <column name="totalPrice"/>
+        </property>
+        <many-to-one name="customerCode" class="com.crossover.inventory.dao.Customer" fetch="select">
+            <column name="customerCode" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -9,4 +9,8 @@ public class ApiKey {
     public static final String CUSTOMER_PHONE_NO_2 = "phoneNo2";
     public static final String CUSTOMER_CREDIT_LIMIT = "creditLimit";
     public static final String CUSTOMER_CURRENT_CREDIT = "currentCredit";
+    public static final String PRODUCT_CODE = "code";
+    public static final String PRODUCT_DESCRIPTION = "description";
+    public static final String PRODUCT_PRICE = "price";
+    public static final String PRODUCT_QUANTITY = "quantity";
 }

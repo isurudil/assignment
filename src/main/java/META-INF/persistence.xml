@@ -3,11 +3,14 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <mapping-file>com/crossover/inventory/dao/OrderList.xml</mapping-file>
+        <mapping-file>../../resources/crossover/inventory/dao/SalesOrder.xml</mapping-file>
+        <mapping-file>../../resources/crossover/inventory/dao/Product.xml</mapping-file>
         <properties>
-            <property name="hibernate.connection.url" value=""/>
-            <property name="hibernate.connection.driver_class" value=""/>
-            <property name="hibernate.connection.username" value=""/>
-            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/inventory"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="password"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

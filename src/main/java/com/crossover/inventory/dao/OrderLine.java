@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class OrderLine {
 
+    int id;
     Product product;
     int quantity;
     BigDecimal unitPrice;

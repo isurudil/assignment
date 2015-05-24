@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 public class Customer {
 
-
     private String code;
     private String name;
     private String address;

@@ -1,23 +1,18 @@
 package com.crossover.inventory.dao;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public class SalesOrder {
+    private String orderNumber;
+    private BigDecimal totalPrice;
+    private String customerCode;
 
-    String orderNumber;
-    Customer customer;
-    BigDecimal totalPrice;
-    List<OrderLine> orderLines;
-
-    public SalesOrder() {
+    public String getCustomerCode() {
+        return customerCode;
     }
 
-    public SalesOrder(String orderNumber, Customer customer, BigDecimal totalPrice, List<OrderLine> orderLines) {
-        this.orderNumber = orderNumber;
-        this.customer = customer;
-        this.totalPrice = totalPrice;
-        this.orderLines = orderLines;
+    public void setCustomerCode(String customerCode) {
+        this.customerCode = customerCode;
     }
 
     public String getOrderNumber() {
@@ -28,14 +23,6 @@ public class SalesOrder {
         this.orderNumber = orderNumber;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public BigDecimal getTotalPrice() {
         return totalPrice;
     }
@@ -44,11 +31,23 @@ public class SalesOrder {
         this.totalPrice = totalPrice;
     }
 
-    public List<OrderLine> getOrderLines() {
-        return orderLines;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SalesOrder that = (SalesOrder) o;
+
+        if (orderNumber != null ? !orderNumber.equals(that.orderNumber) : that.orderNumber != null) return false;
+        if (totalPrice != null ? !totalPrice.equals(that.totalPrice) : that.totalPrice != null) return false;
+
+        return true;
     }
 
-    public void setOrderLines(List<OrderLine> orderLines) {
-        this.orderLines = orderLines;
+    @Override
+    public int hashCode() {
+        int result = orderNumber != null ? orderNumber.hashCode() : 0;
+        result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
+        return result;
     }
 }
