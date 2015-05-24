@@ -29,6 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("Adding customer : " + customer);
 
         HibernateUtil.insert(customer);
+
         logger.info("Customer is successfully added to the database");
     }
 

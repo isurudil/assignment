@@ -2,6 +2,7 @@ package com.crossover.inventory.services.impl;
 
 import com.crossover.inventory.dao.SalesOrder;
 import com.crossover.inventory.services.SalesOrderService;
+import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.Consumes;
@@ -21,8 +22,12 @@ public class SalesOrderServiceImpl implements SalesOrderService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public void addSalesOrder(SalesOrder salesOrder) {
+    public void addSalesOrder(SalesOrder salesOrder) throws Exception {
         logger.info("Adding sales order : " + salesOrder);
+
+        HibernateUtil.insert(salesOrder);
+
+        logger.info("Sales Order is successfully added to the database");
     }
 
     @Override

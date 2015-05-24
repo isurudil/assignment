@@ -24,6 +24,7 @@ public class ProductServiceImpl implements ProductService {
         logger.info("Adding product : " + product);
 
         HibernateUtil.insert(product);
+
         logger.info("Product is successfully added to the database");
     }
 
