@@ -31,6 +31,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer customer = EntityFactory.createCustomer(request);
 
+        executeQuery(customer);
+    }
+
+    private void executeQuery(Customer customer) throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.save(customer);

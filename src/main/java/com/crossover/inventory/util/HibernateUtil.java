@@ -5,12 +5,14 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
-    private static final SessionFactory sessionFactory = buildSessionFactory();
+    private static SessionFactory sessionFactory;
 
-    private static SessionFactory buildSessionFactory() {
+    private HibernateUtil() {
+    }
+
+    private void buildSessionFactory() {
         try {
-            // Create the SessionFactory from hibernate.cfg.xml
-            return new Configuration().configure().buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
             throw new ExceptionInInitializerError(ex);
@@ -21,7 +23,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public static void closeConnection() {
+    public static void closeSessionFactory() {
         getSessionFactory().close();
     }
 }
