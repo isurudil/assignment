@@ -6,7 +6,9 @@ import com.crossover.inventory.services.CustomerService;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import java.math.BigDecimal;
@@ -20,13 +22,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @POST
     @Path("/add")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public void addCustomer(MultivaluedMap<String, String> request) throws Exception {
-        logger.info("Adding customer : " + request);
-
-        Customer customer = EntityFactory.createCustomer(request);
+    public void addCustomer(Customer customer) throws Exception {
+        logger.info("Adding customer : " + customer);
 
         HibernateUtil.insert(customer);
         logger.info("Customer is successfully added to the database");

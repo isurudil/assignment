@@ -87,12 +87,15 @@ public class Customer {
     }
 
     @Override
-    public int hashCode() {
-        int result = code != null ? code.hashCode() : 0;
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (phoneNo1 != null ? phoneNo1.hashCode() : 0);
-        result = 31 * result + (creditLimit != null ? creditLimit.hashCode() : 0);
-        result = 31 * result + (currentCredit != null ? currentCredit.hashCode() : 0);
-        return result;
+    public String toString() {
+        return "Customer{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNo1='" + phoneNo1 + '\'' +
+                ", phoneNo2='" + phoneNo2 + '\'' +
+                ", creditLimit=" + creditLimit +
+                ", currentCredit=" + currentCredit +
+                '}';
     }
 }

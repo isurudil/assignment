@@ -6,6 +6,6 @@ import javax.ws.rs.core.MultivaluedMap;
 
 public interface SalesOrderService {
 
-    public void addSalesOrder(MultivaluedMap<String, String> request);
+    public void addSalesOrder(SalesOrder salesOrder);
     public SalesOrder getAllSalesOrders();
 }

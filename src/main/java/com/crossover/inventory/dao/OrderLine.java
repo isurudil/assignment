@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 
 public class OrderLine {
 
-    int id;
-    Product product;
-    int quantity;
-    BigDecimal unitPrice;
-    BigDecimal totalPrice;
+    private int id;
+    private Product product;
+    private int quantity;
+    private BigDecimal unitPrice;
+    private BigDecimal totalPrice;
 
     public OrderLine() {
     }
@@ -50,5 +50,24 @@ public class OrderLine {
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderLine{" +
+                "id=" + id +
+                ", product=" + product.toString() +
+                ", quantity=" + quantity +
+                ", unitPrice=" + unitPrice +
+                ", totalPrice=" + totalPrice +
+                '}';
     }
 }

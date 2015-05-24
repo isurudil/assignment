@@ -35,6 +35,10 @@ public class HibernateUtil {
             }
             logger.error("Error occurred while inserting to database ", e);
             throw new Exception("Error occurred while adding customer");
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
     }
 

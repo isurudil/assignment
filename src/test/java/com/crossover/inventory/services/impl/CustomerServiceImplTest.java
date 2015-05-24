@@ -2,6 +2,7 @@ package com.crossover.inventory.services.impl;
 
 import com.crossover.inventory.dao.Customer;
 import com.crossover.inventory.util.HibernateUtil;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -13,21 +14,19 @@ import java.math.BigDecimal;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CustomerServiceImplTest {
 
+    private static Logger logger = Logger.getLogger(CustomerServiceImplTest.class);
+
     @Test
-    public void testAddCustomer() {
+    public void testAddCustomer() throws Exception {
 
         Customer customer = new Customer();
         customer.setName("Isuru");
         customer.setAddress("Address");
-        customer.setCode("6");
+        customer.setCode("8");
         customer.setCreditLimit(new BigDecimal(12));
         customer.setPhoneNo1("phone1");
         customer.setPhoneNo2("phone2");
 
-        try {
-            HibernateUtil.insert(customer);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        HibernateUtil.insert(customer);
     }
 }

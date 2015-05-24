@@ -1,0 +1,14 @@
+{"orderNumber": "O1", "customerCode": "C1", "totalPrice": 100, "orderLines": [
+    {
+        "id": 1,
+        "product": {
+            "code": "P1",
+            "description": "Desc",
+            "price": 100,
+            "quantity": 10
+        },
+        "quantity": 10,
+        "unitPrice": 10,
+        "totalPrice": 1000
+    }
+]}

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    public void addProduct(MultivaluedMap<String, String> request) throws Exception;
+    public void addProduct(Product product) throws Exception;
     public void deleteProduct(String code);
     public List<Product> getAllProducts();
     public BigDecimal getUnitPrice(/*String code*/);
