@@ -9,8 +9,15 @@
         <property name="totalPrice" type="java.math.BigDecimal">
             <column name="totalPrice"/>
         </property>
-        <many-to-one name="customerCode" class="com.crossover.inventory.dao.Customer" fetch="select">
-            <column name="customerCode" not-null="true" />
-        </many-to-one>
+        <property name="customerCode" type="java.lang.String">
+            <column name="customerCode"/>
+        </property>
+        <!--<many-to-one name="customerCode" class="com.crossover.inventory.dao.Customer" fetch="select">-->
+            <!--<column name="customerCode" not-null="true" />-->
+        <!--</many-to-one>-->
+        <set name="orderLines" cascade="all" inverse="true">
+            <key column="orderNumber" not-null="true" />
+            <one-to-many class="com.crossover.inventory.dao.OrderLine"/>
+        </set>
     </class>
 </hibernate-mapping>

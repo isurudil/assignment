@@ -2,12 +2,13 @@ package com.crossover.inventory.dao;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 public class SalesOrder {
     private String orderNumber;
     private String customerCode;
     private BigDecimal totalPrice;
-    private List<OrderLine> orderLines;
+    private Set<OrderLine> orderLines;
 
     public String getCustomerCode() {
         return customerCode;
@@ -33,11 +34,11 @@ public class SalesOrder {
         this.totalPrice = totalPrice;
     }
 
-    public List<OrderLine> getOrderLines() {
+    public Set<OrderLine> getOrderLines() {
         return orderLines;
     }
 
-    public void setOrderLines(List<OrderLine> orderLines) {
+    public void setOrderLines(Set<OrderLine> orderLines) {
         this.orderLines = orderLines;
     }
 

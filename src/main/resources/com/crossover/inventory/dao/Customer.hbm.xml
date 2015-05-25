@@ -4,9 +4,8 @@
 <hibernate-mapping>
     <class name="com.crossover.inventory.dao.Customer" table="CUSTOMER" catalog="inventory">
         <id name="code" type="java.lang.String">
-            <column name="code" />
+            <column name="code"/>
         </id>
-
         <property name="name" type="java.lang.String">
             <column name="name"/>
         </property>
@@ -26,11 +25,11 @@
             <column name="currentCredit"/>
         </property>
         <!--<set name="salesOrders" table="SALES_ORDER"-->
-             <!--inverse="true" lazy="true" fetch="select">-->
-            <!--<key>-->
-                <!--<column name="code" not-null="true" />-->
-            <!--</key>-->
-            <!--<one-to-many class="com.crossover.inventory.dao.SalesOrder" />-->
+        <!--inverse="true" lazy="true" fetch="select">-->
+        <!--<key>-->
+        <!--<column name="code" not-null="true" />-->
+        <!--</key>-->
+        <!--<one-to-many class="com.crossover.inventory.dao.SalesOrder" />-->
         <!--</set>-->
     </class>
 

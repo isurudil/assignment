@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 public class OrderLine {
 
     private int id;
-    private Product product;
+    private String orderNumber;
+    private String productCode;
     private int quantity;
     private BigDecimal unitPrice;
     private BigDecimal totalPrice;
@@ -13,19 +14,19 @@ public class OrderLine {
     public OrderLine() {
     }
 
-    public OrderLine(Product product, int quantity, BigDecimal unitPrice, BigDecimal totalPrice) {
-        this.product = product;
+    public OrderLine(String productCode, int quantity, BigDecimal unitPrice, BigDecimal totalPrice) {
+        this.productCode = productCode;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.totalPrice = totalPrice;
     }
 
-    public Product getProduct() {
-        return product;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
     public int getQuantity() {
@@ -60,11 +61,19 @@ public class OrderLine {
         this.id = id;
     }
 
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     @Override
     public String toString() {
         return "OrderLine{" +
                 "id=" + id +
-                ", product=" + product.toString() +
+                ", productCode=" + productCode.toString() +
                 ", quantity=" + quantity +
                 ", unitPrice=" + unitPrice +
                 ", totalPrice=" + totalPrice +
