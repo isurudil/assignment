@@ -42,19 +42,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<Customer> getAllCustomers() {
-        System.out.println("Getting all the customers");
-        Customer customer = new Customer();
-        customer.setName("Isuru");
-        customer.setAddress("Address");
-        customer.setCode("1235");
-        customer.setCreditLimit(new BigDecimal(12));
-        customer.setPhoneNo1("phone1");
-        customer.setPhoneNo2("phone2");
-
-        List<Customer> customerList = new ArrayList<>();
-        customerList.add(customer);
-
-        return customerList;
+        List<Customer> customers = HibernateUtil.getAll("FROM Customer");
+        return customers;
     }
 
     @Override

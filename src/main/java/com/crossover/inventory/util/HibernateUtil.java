@@ -1,11 +1,13 @@
 package com.crossover.inventory.util;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.exception.ConstraintViolationException;
+
+import java.util.List;
 
 public class HibernateUtil {
 
@@ -29,7 +31,7 @@ public class HibernateUtil {
         session.save(object);
         try {
             transaction.commit();
-        } catch (ConstraintViolationException e) {
+        } catch (HibernateException e) {
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -38,6 +40,25 @@ public class HibernateUtil {
         } finally {
             closeSession(session);
         }
+    }
+
+    public static List getAll(String sql) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        List entityList = null;
+        try {
+            transaction = session.beginTransaction();
+            entityList = session.createQuery(sql).list();
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            logger.error("Error occurred while reading from database", e);
+        } finally {
+            session.close();
+        }
+        return entityList;
     }
 
     private static void closeSession(Session session) {

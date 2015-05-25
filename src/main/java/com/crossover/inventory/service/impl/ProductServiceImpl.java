@@ -1,6 +1,7 @@
 package com.crossover.inventory.service.impl;
 
 import com.crossover.inventory.entity.ApiEntity;
+import com.crossover.inventory.entity.Customer;
 import com.crossover.inventory.entity.Product;
 import com.crossover.inventory.service.ProductService;
 import com.crossover.inventory.util.HibernateUtil;
@@ -40,7 +41,8 @@ public class ProductServiceImpl implements ProductService {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        List<Product> products = HibernateUtil.getAll("FROM Product");
+        return products;
     }
 
     @GET

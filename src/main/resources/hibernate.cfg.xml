@@ -15,6 +15,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
+        <!--<property name="packagesToScan">com.crossover.inventory</property>-->
 
         <mapping resource="com/crossover/inventory/entity/Customer.hbm.xml"/>
         <mapping resource="com/crossover/inventory/entity/SalesOrder.hbm.xml"/>

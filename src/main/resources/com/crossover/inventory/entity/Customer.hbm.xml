@@ -24,13 +24,6 @@
         <property name="currentCredit" type="java.math.BigDecimal">
             <column name="currentCredit"/>
         </property>
-        <!--<set name="salesOrders" table="SALES_ORDER"-->
-        <!--inverse="true" lazy="true" fetch="select">-->
-        <!--<key>-->
-        <!--<column name="code" not-null="true" />-->
-        <!--</key>-->
-        <!--<one-to-many class="com.crossover.inventory.entityity.SalesOrder" />-->
-        <!--</set>-->
     </class>
 
 </hibernate-mapping>

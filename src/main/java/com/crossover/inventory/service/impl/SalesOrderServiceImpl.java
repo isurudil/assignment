@@ -8,11 +8,9 @@ import com.crossover.inventory.util.StatusCodes;
 import com.crossover.inventory.util.StatusMessages;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/sales-orders")
 public class SalesOrderServiceImpl implements SalesOrderService {
@@ -30,9 +28,14 @@ public class SalesOrderServiceImpl implements SalesOrderService {
         return insertToDB(salesOrder);
     }
 
+    @GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public SalesOrder getAllSalesOrders() {
-        return null;
+    public List<SalesOrder> getAllSalesOrders() {
+        List<SalesOrder> salesOrders = HibernateUtil.getAll("SELECT orderNumber,customerCode," +
+                "totalPrice FROM SalesOrder");
+        return salesOrders;
     }
 
     @Override
