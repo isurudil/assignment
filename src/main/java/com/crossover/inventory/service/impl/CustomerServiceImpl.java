@@ -1,16 +1,12 @@
-package com.crossover.inventory.services.impl;
+package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.dao.Customer;
-import com.crossover.inventory.dao.EntityFactory;
-import com.crossover.inventory.services.CustomerService;
+import com.crossover.inventory.entity.Customer;
+import com.crossover.inventory.service.CustomerService;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

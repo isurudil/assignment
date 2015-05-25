@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.crossover.inventory.dao.SalesOrder" table="SALES_ORDER" catalog="inventory">
+    <class name="com.crossover.inventory.entity.SalesOrder" table="SALES_ORDER" catalog="inventory">
         <id name="orderNumber" type="java.lang.String">
             <column name="orderNumber" />
         </id>
@@ -12,12 +12,9 @@
         <property name="customerCode" type="java.lang.String">
             <column name="customerCode"/>
         </property>
-        <!--<many-to-one name="customerCode" class="com.crossover.inventory.dao.Customer" fetch="select">-->
-            <!--<column name="customerCode" not-null="true" />-->
-        <!--</many-to-one>-->
         <set name="orderLines" cascade="all" inverse="true">
             <key column="orderNumber" not-null="true" />
-            <one-to-many class="com.crossover.inventory.dao.OrderLine"/>
+            <one-to-many class="com.crossover.inventory.entity.OrderLine"/>
         </set>
     </class>
 </hibernate-mapping>

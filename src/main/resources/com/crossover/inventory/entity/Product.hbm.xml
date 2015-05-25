@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.crossover.inventory.dao.Product" table="PRODUCT" catalog="inventory">
+    <class name="com.crossover.inventory.entity.Product" table="PRODUCT" catalog="inventory">
         <id name="code" type="java.lang.String">
             <column name="code"/>
         </id>

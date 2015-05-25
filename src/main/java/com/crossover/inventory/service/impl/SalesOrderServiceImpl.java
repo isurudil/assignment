@@ -1,7 +1,7 @@
-package com.crossover.inventory.services.impl;
+package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.dao.SalesOrder;
-import com.crossover.inventory.services.SalesOrderService;
+import com.crossover.inventory.entity.SalesOrder;
+import com.crossover.inventory.service.SalesOrderService;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 
@@ -10,7 +10,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 
 @Path("/sales-orders")
 public class SalesOrderServiceImpl implements SalesOrderService {

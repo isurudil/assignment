@@ -1,8 +1,6 @@
-package com.crossover.inventory.services;
+package com.crossover.inventory.service;
 
-import com.crossover.inventory.dao.SalesOrder;
-
-import javax.ws.rs.core.MultivaluedMap;
+import com.crossover.inventory.entity.SalesOrder;
 
 public interface SalesOrderService {
 

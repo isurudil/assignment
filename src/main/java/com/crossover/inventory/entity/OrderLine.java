@@ -1,4 +1,4 @@
-package com.crossover.inventory.dao;
+package com.crossover.inventory.entity;
 
 import java.math.BigDecimal;
 

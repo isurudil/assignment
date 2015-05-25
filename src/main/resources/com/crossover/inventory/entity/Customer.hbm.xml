@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.crossover.inventory.dao.Customer" table="CUSTOMER" catalog="inventory">
+    <class name="com.crossover.inventory.entity.Customer" table="CUSTOMER" catalog="inventory">
         <id name="code" type="java.lang.String">
             <column name="code"/>
         </id>
@@ -29,7 +29,7 @@
         <!--<key>-->
         <!--<column name="code" not-null="true" />-->
         <!--</key>-->
-        <!--<one-to-many class="com.crossover.inventory.dao.SalesOrder" />-->
+        <!--<one-to-many class="com.crossover.inventory.entityity.SalesOrder" />-->
         <!--</set>-->
     </class>
 

@@ -1,7 +1,7 @@
-package com.crossover.inventory.services.impl;
+package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.dao.Customer;
-import com.crossover.inventory.dao.SalesOrder;
+import com.crossover.inventory.entity.Customer;
+import com.crossover.inventory.entity.SalesOrder;
 import com.crossover.inventory.util.HibernateUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;

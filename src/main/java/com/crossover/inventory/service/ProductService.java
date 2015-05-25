@@ -1,8 +1,7 @@
-package com.crossover.inventory.services;
+package com.crossover.inventory.service;
 
-import com.crossover.inventory.dao.Product;
+import com.crossover.inventory.entity.Product;
 
-import javax.ws.rs.core.MultivaluedMap;
 import java.math.BigDecimal;
 import java.util.List;
 

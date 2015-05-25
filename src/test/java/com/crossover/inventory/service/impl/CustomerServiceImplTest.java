@@ -1,6 +1,6 @@
-package com.crossover.inventory.services.impl;
+package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.dao.Customer;
+import com.crossover.inventory.entity.Customer;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.junit.Test;

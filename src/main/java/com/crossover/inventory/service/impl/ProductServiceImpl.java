@@ -1,7 +1,7 @@
-package com.crossover.inventory.services.impl;
+package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.dao.Product;
-import com.crossover.inventory.services.ProductService;
+import com.crossover.inventory.entity.Product;
+import com.crossover.inventory.service.ProductService;
 import com.crossover.inventory.util.HibernateUtil;
 import org.apache.log4j.Logger;
 

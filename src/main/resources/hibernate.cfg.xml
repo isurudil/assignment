@@ -16,10 +16,10 @@
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
 
-        <mapping resource="com/crossover/inventory/dao/Customer.hbm.xml"/>
-        <mapping resource="com/crossover/inventory/dao/SalesOrder.hbm.xml"/>
-        <mapping resource="com/crossover/inventory/dao/Product.hbm.xml"/>
-        <mapping resource="com/crossover/inventory/dao/OrderLine.hbm.xml"/>
+        <mapping resource="com/crossover/inventory/entity/Customer.hbm.xml"/>
+        <mapping resource="com/crossover/inventory/entity/SalesOrder.hbm.xml"/>
+        <mapping resource="com/crossover/inventory/entity/Product.hbm.xml"/>
+        <mapping resource="com/crossover/inventory/entity/OrderLine.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

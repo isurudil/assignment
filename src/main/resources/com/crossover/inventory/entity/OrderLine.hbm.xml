@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.crossover.inventory.dao.OrderLine" table="ORDER_LINE" catalog="inventory">
+    <class name="com.crossover.inventory.entity.OrderLine" table="ORDER_LINE" catalog="inventory">
         <id name="id" type="int" unsaved-value="any">
             <column name="id"/>
             <generator class="native"/>

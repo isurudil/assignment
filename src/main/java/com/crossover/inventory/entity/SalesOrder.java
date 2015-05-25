@@ -1,7 +1,6 @@
-package com.crossover.inventory.dao;
+package com.crossover.inventory.entity;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 public class SalesOrder {
