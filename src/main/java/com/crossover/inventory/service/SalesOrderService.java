@@ -1,9 +1,10 @@
 package com.crossover.inventory.service;
 
+import com.crossover.inventory.entity.ApiEntity;
 import com.crossover.inventory.entity.SalesOrder;
 
-public interface SalesOrderService {
+public interface SalesOrderService extends BaseService{
 
-    public void addSalesOrder(SalesOrder salesOrder) throws Exception;
+    public ApiEntity addSalesOrder(SalesOrder salesOrder);
     public SalesOrder getAllSalesOrders();
 }

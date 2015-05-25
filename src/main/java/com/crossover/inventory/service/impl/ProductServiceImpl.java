@@ -1,5 +1,6 @@
 package com.crossover.inventory.service.impl;
 
+import com.crossover.inventory.entity.ApiEntity;
 import com.crossover.inventory.entity.Product;
 import com.crossover.inventory.service.ProductService;
 import com.crossover.inventory.util.HibernateUtil;
@@ -20,12 +21,10 @@ public class ProductServiceImpl implements ProductService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public void addProduct(Product product) throws Exception {
+    public ApiEntity addProduct(Product product) {
         logger.info("Adding product : " + product);
 
-        HibernateUtil.insert(product);
-
-        logger.info("Product is successfully added to the database");
+        return insertToDB(product);
     }
 
     @POST
@@ -50,5 +49,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public BigDecimal getUnitPrice(/*String code*/) {
         return null;
+    }
+
+    @Override
+    public ApiEntity insertToDB(ApiEntity entity) {
+        try {
+            HibernateUtil.insert(entity);
+            entity.setStatusCode("S1000");
+            logger.info("Product is successfully added to the database");
+        } catch (Exception e) {
+            logger.info("Error occurred");
+            entity.setStatusCode("E1001");
+        }
+        return entity;
     }
 }

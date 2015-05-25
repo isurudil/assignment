@@ -3,7 +3,7 @@ package com.crossover.inventory.entity;
 import java.math.BigDecimal;
 import java.util.Set;
 
-public class SalesOrder {
+public class SalesOrder extends ApiEntity{
     private String orderNumber;
     private String customerCode;
     private BigDecimal totalPrice;

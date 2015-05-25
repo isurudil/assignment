@@ -1,5 +1,6 @@
 package com.crossover.inventory.service.impl;
 
+import com.crossover.inventory.entity.ApiEntity;
 import com.crossover.inventory.entity.Customer;
 import com.crossover.inventory.service.CustomerService;
 import com.crossover.inventory.util.HibernateUtil;
@@ -21,12 +22,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public void addCustomer(Customer customer) throws Exception {
+    public ApiEntity addCustomer(Customer customer) {
         logger.info("Adding customer : " + customer);
 
-        HibernateUtil.insert(customer);
-
-        logger.info("Customer is successfully added to the database");
+        return insertToDB(customer);
     }
 
     @POST
@@ -56,5 +55,18 @@ public class CustomerServiceImpl implements CustomerService {
         customerList.add(customer);
 
         return customerList;
+    }
+
+    @Override
+    public ApiEntity insertToDB(ApiEntity entity) {
+        try {
+            HibernateUtil.insert(entity);
+            entity.setStatusCode("S1000");
+            logger.info("Customer is successfully added to the database");
+        } catch (Exception e) {
+            logger.info("Error occurred");
+            entity.setStatusCode("E1001");
+        }
+        return entity;
     }
 }
