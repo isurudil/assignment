@@ -27,6 +27,6 @@ public class CustomerServiceImplTest {
         customer.setPhoneNo1("phone1");
         customer.setPhoneNo2("phone2");
 
-        HibernateUtil.insert(customer);
+        HibernateUtil.saveOrUpdate(customer);
     }
 }

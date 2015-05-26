@@ -1,6 +1,7 @@
 package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.entity.ApiEntity;
+import com.crossover.inventory.entity.BaseEntity;
+import com.crossover.inventory.entity.OrderLine;
 import com.crossover.inventory.entity.SalesOrder;
 import com.crossover.inventory.service.SalesOrderService;
 import com.crossover.inventory.util.HibernateUtil;
@@ -12,6 +13,7 @@ import org.apache.log4j.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Set;
 
 @Path("/sales-orders")
 public class SalesOrderServiceImpl implements SalesOrderService {
@@ -23,7 +25,7 @@ public class SalesOrderServiceImpl implements SalesOrderService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public ApiEntity addSalesOrder(SalesOrder salesOrder) {
+    public BaseEntity addSalesOrder(SalesOrder salesOrder) {
         logger.info("Adding sales order : " + salesOrder);
 
         return insertToDB(salesOrder);
@@ -39,9 +41,9 @@ public class SalesOrderServiceImpl implements SalesOrderService {
     }
 
     @Override
-    public ApiEntity insertToDB(ApiEntity entity) {
+    public BaseEntity insertToDB(BaseEntity entity) {
         try {
-            HibernateUtil.insert(entity);
+            HibernateUtil.saveOrUpdate(entity);
             entity.setStatusCode(StatusCodes.SUCCESS);
             entity.setStatusMessage(StatusMessages.SUCCESS);
             logger.info("Sales Order is successfully added to the database");

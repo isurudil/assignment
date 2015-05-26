@@ -16,6 +16,6 @@ public class ProductServiceImplTest {
     @Test
     public void testAddProduct() throws Exception {
 
-        HibernateUtil.insert(new Product("p1","desc1", new BigDecimal(10.0), 3));
+        HibernateUtil.saveOrUpdate(new Product("p1", "desc1", new BigDecimal(10.0), 3));
     }
 }

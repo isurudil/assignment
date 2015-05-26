@@ -1,9 +1,9 @@
 package com.crossover.inventory.service;
 
-import com.crossover.inventory.entity.ApiEntity;
+import com.crossover.inventory.entity.BaseEntity;
 
 public interface BaseService {
 
-    public ApiEntity insertToDB(ApiEntity entity);
+    public BaseEntity insertToDB(BaseEntity entity);
 
 }

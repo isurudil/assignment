@@ -24,7 +24,7 @@ public class SalesOrderServiceImplTest {
         salesOrder.setOrderNumber("3232");
         salesOrder.setTotalPrice(new BigDecimal(10.0));
 
-        HibernateUtil.insert(salesOrder);
+        HibernateUtil.saveOrUpdate(salesOrder);
     }
 
     public void testGetAllSalesOrders() throws Exception {

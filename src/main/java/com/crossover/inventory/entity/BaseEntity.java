@@ -1,6 +1,6 @@
 package com.crossover.inventory.entity;
 
-public class ApiEntity {
+public class BaseEntity {
 
     private String statusCode;
     private String statusMessage;

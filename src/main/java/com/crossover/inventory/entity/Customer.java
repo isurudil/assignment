@@ -2,7 +2,7 @@ package com.crossover.inventory.entity;
 
 import java.math.BigDecimal;
 
-public class Customer extends ApiEntity{
+public class Customer extends BaseEntity {
 
     private String code;
     private String name;

@@ -1,7 +1,6 @@
 package com.crossover.inventory.service.impl;
 
-import com.crossover.inventory.entity.ApiEntity;
-import com.crossover.inventory.entity.Customer;
+import com.crossover.inventory.entity.BaseEntity;
 import com.crossover.inventory.entity.Product;
 import com.crossover.inventory.service.ProductService;
 import com.crossover.inventory.util.HibernateUtil;
@@ -25,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public ApiEntity addProduct(Product product) {
+    public BaseEntity addProduct(Product product) {
         logger.info("Adding product : " + product);
 
         return insertToDB(product);
@@ -49,17 +48,29 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @GET
-    @Path("/unit-price")
+    @Path("/unit/{product-code}")
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public BigDecimal getUnitPrice(/*String code*/) {
-        return null;
+    public Product getUnitPrice(@PathParam("product-code") String productCode) {
+        Product product = new Product();
+        try {
+            product = (Product) HibernateUtil.getBy("Product", "code", productCode).get(0);
+            product.setStatusCode(StatusCodes.SUCCESS);
+            product.setStatusMessage(StatusMessages.SUCCESS);
+            logger.info("Product code is successfully retrieved by the database");
+        } catch (Exception e) {
+            logger.info("Error occurred");
+            product.setStatusCode(StatusCodes.FAILURE);
+            product.setStatusMessage(StatusMessages.FAILURE);
+        }
+        return product;
     }
 
     @Override
-    public ApiEntity insertToDB(ApiEntity entity) {
+    public BaseEntity insertToDB(BaseEntity entity) {
+        Product product = (Product) entity;
         try {
-            HibernateUtil.insert(entity);
+            HibernateUtil.saveOrUpdate(entity);
             entity.setStatusCode(StatusCodes.SUCCESS);
             entity.setStatusMessage(StatusMessages.SUCCESS);
             logger.info("Product is successfully added to the database");
@@ -68,6 +79,6 @@ public class ProductServiceImpl implements ProductService {
             entity.setStatusCode(StatusCodes.FAILURE);
             entity.setStatusMessage(StatusMessages.FAILURE);
         }
-        return entity;
+        return product;
     }
 }
