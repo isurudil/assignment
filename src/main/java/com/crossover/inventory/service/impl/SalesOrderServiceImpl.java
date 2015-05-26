@@ -4,6 +4,7 @@ import com.crossover.inventory.entity.ApiEntity;
 import com.crossover.inventory.entity.SalesOrder;
 import com.crossover.inventory.service.SalesOrderService;
 import com.crossover.inventory.util.HibernateUtil;
+import com.crossover.inventory.util.HqlUtil;
 import com.crossover.inventory.util.StatusCodes;
 import com.crossover.inventory.util.StatusMessages;
 import org.apache.log4j.Logger;
@@ -33,8 +34,7 @@ public class SalesOrderServiceImpl implements SalesOrderService {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<SalesOrder> getAllSalesOrders() {
-        List<SalesOrder> salesOrders = HibernateUtil.getAll("SELECT orderNumber,customerCode," +
-                "totalPrice FROM SalesOrder");
+        List<SalesOrder> salesOrders = HibernateUtil.getAll(HqlUtil.ALL_SALES_ORDERS);
         return salesOrders;
     }
 

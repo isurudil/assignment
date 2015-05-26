@@ -4,6 +4,7 @@ import com.crossover.inventory.entity.ApiEntity;
 import com.crossover.inventory.entity.Customer;
 import com.crossover.inventory.service.CustomerService;
 import com.crossover.inventory.util.HibernateUtil;
+import com.crossover.inventory.util.HqlUtil;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -42,7 +43,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<Customer> getAllCustomers() {
-        List<Customer> customers = HibernateUtil.getAll("FROM Customer");
+        List<Customer> customers = HibernateUtil.getAll(HqlUtil.ALL_CUSTOMERS);
         return customers;
     }
 

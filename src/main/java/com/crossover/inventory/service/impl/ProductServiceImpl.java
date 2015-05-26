@@ -5,6 +5,9 @@ import com.crossover.inventory.entity.Customer;
 import com.crossover.inventory.entity.Product;
 import com.crossover.inventory.service.ProductService;
 import com.crossover.inventory.util.HibernateUtil;
+import com.crossover.inventory.util.HqlUtil;
+import com.crossover.inventory.util.StatusCodes;
+import com.crossover.inventory.util.StatusMessages;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -41,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<Product> getAllProducts() {
-        List<Product> products = HibernateUtil.getAll("FROM Product");
+        List<Product> products = HibernateUtil.getAll(HqlUtil.ALL_PRODUCTS);
         return products;
     }
 
@@ -57,11 +60,13 @@ public class ProductServiceImpl implements ProductService {
     public ApiEntity insertToDB(ApiEntity entity) {
         try {
             HibernateUtil.insert(entity);
-            entity.setStatusCode("S1000");
+            entity.setStatusCode(StatusCodes.SUCCESS);
+            entity.setStatusMessage(StatusMessages.SUCCESS);
             logger.info("Product is successfully added to the database");
         } catch (Exception e) {
             logger.info("Error occurred");
-            entity.setStatusCode("E1001");
+            entity.setStatusCode(StatusCodes.FAILURE);
+            entity.setStatusMessage(StatusMessages.FAILURE);
         }
         return entity;
     }
